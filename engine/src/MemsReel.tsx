@@ -160,7 +160,7 @@ const useMats = () => useMemo(() => {
     g.fillStyle = gr; g.fillRect(0, 0, w, h);
     g.fillStyle = 'rgba(255,255,255,0.92)'; g.font = `600 ${land ? 120 : 150}px Inter, sans-serif`; g.textAlign = 'center';
     g.fillText('10:24', land ? 330 : w / 2, land ? 300 : 380);
-    g.font = '500 40px Inter, sans-serif'; g.fillStyle = 'rgba(255,255,255,0.7)'; g.fillText('Friday, 6 November', land ? 330 : w / 2, land ? 370 : 460);
+    g.font = '500 40px Inter, sans-serif'; g.fillStyle = 'rgba(255,255,255,0.7)'; g.fillText('Friday, November 6', land ? 330 : w / 2, land ? 370 : 460);
     const cw = land ? 760 : 560, ch = land ? 470 : 560, cx = land ? 680 : (w - cw) / 2, cy = land ? 115 : 640;
     const pg = g.createLinearGradient(cx, cy, cx + cw, cy + ch); pg.addColorStop(0, '#ff9a5a'); pg.addColorStop(1, '#5b3df5');
     g.fillStyle = pg; g.beginPath(); (g as any).roundRect(cx, cy, cw, ch, 36); g.fill();
@@ -271,8 +271,8 @@ export const MemsReel: React.FC = () => {
         <span style={{color: C.accent}}>gap ↓ charge ↑</span>{'   '}<span style={{color: C.warm}}>gap ↑ charge ↓</span>
       </Label>
       <AxisChart t={t} op={chart} />
-      <Label x={width / 2} y={420} op={steps} color={C.warm} size={44}>STEPS {stepN.toLocaleString('en-IN')}</Label>
-      <Captions vo={vo as any} t={t} hi={/weight|chip|two|millimetres|silicon|springs|fingers|hair|gravity|charge|hundreds|three|rotate/i} warm={/steps\.?$/i} />
+      <Label x={width / 2} y={420} op={steps} color={C.warm} size={44}>STEPS {stepN.toLocaleString('en-US')}</Label>
+      <Captions vo={vo as any} t={t} hi={/weight|chip|two|millimeters|silicon|springs|fingers|hair|gravity|charge|hundreds|three|rotate/i} warm={/steps\.?$/i} />
       <Flash t={t} at={CUT_IN} />
       <Flash t={t} at={CUT_OUT} />
       <EndCard op={endOp} />

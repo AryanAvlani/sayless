@@ -4,12 +4,12 @@ k = Kokoro("/home/claude/sayless/tts/kokoro-v1.0.onnx", "/home/claude/sayless/tt
 LINES = [
  "Your phone never talks to GPS satellites.",
  "It only listens.",
- "About thirty GPS satellites circle the Earth, twenty thousand kilometres up.",
+ "About thirty GPS satellites circle the Earth, more than twelve thousand miles up.",
  "Each one carries an atomic clock, and keeps broadcasting two things: the exact time, and where it is.",
  "That signal takes about seven hundredths of a second to reach you.",
  "Your phone times that delay from at least four satellites, and turns each one into a distance.",
  "Only one spot on Earth fits every distance.",
- "That's you. Accurate to about five metres, without ever saying a word.",
+ "That's you. Accurate to about sixteen feet, without ever saying a word.",
 ]
 GAP = [0.25, 0.45, 0.35, 0.35, 0.35, 0.3, 0.15, 0.0]
 sr = 24000; out = []; meta = []; t = 0.35

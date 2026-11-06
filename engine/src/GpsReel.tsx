@@ -21,8 +21,8 @@ const llToLocal = (lat: number, lon: number, r: number) => {
   const u = (lon + 180) / 360, v = (90 - lat) / 180;
   return new THREE.Vector3(-r * Math.cos(u * 2 * Math.PI) * Math.sin(v * Math.PI), r * Math.cos(v * Math.PI), r * Math.sin(u * 2 * Math.PI) * Math.sin(v * Math.PI));
 };
-// orient Earth so Mumbai faces +Z (towards default camera), slightly up-left
-const MUM_LOCAL = llToLocal(19.08, 72.88, R);
+// orient Earth so New York faces +Z (towards default camera), slightly up-left
+const MUM_LOCAL = llToLocal(40.71, -74.01, R);
 const ROT_Y = Math.atan2(-MUM_LOCAL.x, MUM_LOCAL.z);
 const zAfterY = -MUM_LOCAL.x * Math.sin(ROT_Y) + MUM_LOCAL.z * Math.cos(ROT_Y);
 const ROT_X = Math.atan2(MUM_LOCAL.y, zAfterY);
@@ -42,7 +42,7 @@ const satPos = (i: number, t: number) => {
   v.applyAxisAngle(new THREE.Vector3(0, 1, 0), raan);
   return v;
 };
-// the four "hero" satellites visible above Mumbai (fixed, hand-placed in the sky dome above +Z)
+// the four "hero" satellites visible above New York (fixed, hand-placed in the sky dome above +Z)
 const HERO_DIRS = [[0.52, 0.55, 0.65], [-0.62, 0.32, 0.71], [0.25, -0.52, 0.82], [-0.38, -0.33, 0.86]];
 const HERO = HERO_DIRS.map((d) => new THREE.Vector3(...(d as [number, number, number])).normalize().multiplyScalar(ORBIT));
 const HERO_A = HERO[0];
@@ -237,7 +237,7 @@ const Scene: React.FC<{t: number; tex: THREE.Texture[]}> = ({t, tex}) => {
       <directionalLight position={[8, 3, 6]} intensity={2.3} color="#fff1dc" />
       <directionalLight position={[-6, -2, -4]} intensity={0.25} color="#6d8cff" />
       <points geometry={stars}><pointsMaterial color="#cfe0ff" size={0.55} sizeAttenuation transparent opacity={0.75} depthWrite={false} /></points>
-      {/* Earth oriented so Mumbai faces +Z */}
+      {/* Earth oriented so New York faces +Z */}
       <group rotation={[ROT_X, 0, 0]}>
         <group rotation={[0, ROT_Y + earthSpin * 0, 0]}>
           <mesh>
@@ -276,7 +276,7 @@ const Scene: React.FC<{t: number; tex: THREE.Texture[]}> = ({t, tex}) => {
       {HERO.map((p, i) => <Beam key={i} from={p} to={MUMBAI} progress={beamsAll(i)} opacity={beamsAllOp} mats={mats} />)}
       {/* range spheres */}
       {HERO.map((p, i) => <RangeSphere key={i} c={p} r={p.distanceTo(MUMBAI) * sphereK(i)} opacity={spheresOp * 0.9} mat={mats.shell} />)}
-      {/* Mumbai pin */}
+      {/* New York pin */}
       {pin > 0 ? (
         <>
           <sprite position={MUMBAI.clone().multiplyScalar(1.004).toArray()} scale={[0.45 + 0.05 * Math.sin(t * 5), 0.45 + 0.05 * Math.sin(t * 5), 1]}><spriteMaterial map={mats.glowW} transparent opacity={pin} depthWrite={false} blending={THREE.AdditiveBlending} /></sprite>
@@ -320,10 +320,10 @@ const Captions: React.FC<{t: number}> = ({t}) => {
       {ch.map((w: any, i: number) => {
         const active = t >= w.s && t < w.e + 0.05;
         const said = t >= w.s;
-        const hl = /satellites|listens|thirty|atomic|time|seven|four|distance|you\.|five/i.test(w.w);
+        const hl = /satellites|listens|30|12,000|miles|atomic|time|seven|4|distance|you\.|sixteen/i.test(w.w);
         return (
           <span key={i} style={{fontFamily: 'Inter', fontWeight: 900, fontSize: 82, letterSpacing: -2, lineHeight: 1.08,
-            color: hl && said ? (w.w.match(/you|five/i) ? C.warm : C.accent) : C.text, opacity: said ? 1 : 0.45,
+            color: hl && said ? (w.w.match(/you|sixteen/i) ? C.warm : C.accent) : C.text, opacity: said ? 1 : 0.45,
             textShadow: '0 4px 28px rgba(0,0,0,0.85), 0 2px 6px rgba(0,0,0,0.9)', transform: `translateY(${active ? -4 : 0}px)`}}>{w.w.replace(/[:]/g, '')}</span>
         );
       })}
@@ -367,13 +367,13 @@ export const GpsReel: React.FC = () => {
       {/* top series tag */}
       <div style={{position: 'absolute', top: 210, width: '100%', textAlign: 'center', fontFamily: 'JetBrains Mono', fontSize: 28, letterSpacing: 8, color: 'rgba(200,225,255,0.75)', opacity: Math.min(1, t / 0.4) * (1 - endOp)}}>HOW IT WORKS · GPS</div>
       {/* labels */}
-      <Label x={width / 2} y={380} op={altOp} color={C.accent} size={38}>20,200 km above you</Label>
+      <Label x={width / 2} y={380} op={altOp} color={C.accent} size={38}>12,550 miles above you</Label>
       <Label x={width / 2} y={400} op={clockOp} color={C.accent} size={34}>
         <div>ATOMIC CLOCK</div><div style={{fontSize: 46, color: C.text}}>{new Date(sec * 1000).toISOString().slice(11, 19)}.{us}</div>
       </Label>
       <Label x={width / 2} y={380} op={tofOp} color={C.accent} size={44}>travel time {tof.toFixed(4)} s</Label>
-      <Label x={mum.x + 150} y={mum.y - 120} op={youOp} color={C.warm} size={40}>YOU · Mumbai</Label>
-      <Label x={mum.x} y={mum.y + 150} op={accOp} color={C.warm} size={34}>± 5 m</Label>
+      <Label x={mum.x + 150} y={mum.y - 120} op={youOp} color={C.warm} size={40}>YOU · New York</Label>
+      <Label x={mum.x} y={mum.y + 150} op={accOp} color={C.warm} size={34}>± 16 ft</Label>
       <Captions t={t} />
       <AbsoluteFill style={{opacity: endOp, background: 'linear-gradient(180deg, rgba(2,4,10,0.85) 0%, rgba(2,4,10,0.55) 35%, transparent 60%)'}} />
       {/* end card */}

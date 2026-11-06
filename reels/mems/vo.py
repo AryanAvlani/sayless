@@ -3,7 +3,7 @@ from kokoro_onnx import Kokoro
 k = Kokoro("/home/claude/sayless/tts/kokoro-v1.0.onnx", "/home/claude/sayless/tts/voices-v1.0.bin")
 LINES = [
  "There's a tiny weight inside your phone that never sits still.",
- "It lives in a chip just two millimetres wide.",
+ "It lives in a chip just two millimeters wide.",
  "Inside, a sliver of silicon hangs on microscopic springs.",
  "Around it are comb-like fingers, each thinner than a human hair.",
  "Tilt your phone, and gravity pulls the weight slightly to one side.",

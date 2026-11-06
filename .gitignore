@@ -2,3 +2,5 @@ node_modules/
 out/
 *.wav
 *.mp4
+tts/
+final/
