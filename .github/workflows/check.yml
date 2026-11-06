@@ -10,3 +10,6 @@ jobs:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_USER_ID: "17841475226001074"
         run: python3 scripts/check.py
+      - name: Media URLs reachable
+        run: |
+          for f in gps.mp4 screen-rotation.mp4; do curl -sSI "https://aryanavlani.github.io/sayless/$f" | grep -iE "^HTTP|content-type|content-length|location"; done
