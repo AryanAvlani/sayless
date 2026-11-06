@@ -14,7 +14,7 @@ jobs:
       - name: Publish due reel
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_USER_ID: "17841475226001074"
         run: python3 scripts/publish.py
       - name: Save queue status
         run: |
