@@ -1,0 +1,23 @@
+name: token
+on:
+  schedule:
+    - cron: "17 3 */7 * *"      # weekly
+  workflow_dispatch: {}
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: r
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: python3 scripts/token_check.py
+      - name: Store new token (only if Instagram issued a different one)
+        if: steps.r.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          NEW: ${{ steps.r.outputs.new_token }}
+        run: |
+          echo "::add-mask::$NEW"
+          if [ -z "$GH_TOKEN" ]; then echo "Token changed but GH_PAT is not set - cannot save it"; exit 1; fi
+          gh secret set IG_TOKEN --body "$NEW" --repo "$GITHUB_REPOSITORY"

@@ -1,0 +1,23 @@
+name: publish
+on:
+  schedule:
+    - cron: "*/30 * * * *"      # every 30 min; posts whatever is due in queue/queue.json
+  workflow_dispatch: {}
+permissions:
+  contents: write
+concurrency: publish
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish due reel
+        env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+        run: python3 scripts/publish.py
+      - name: Save queue status
+        run: |
+          git config user.name "sayless-bot"; git config user.email "sayless-bot@users.noreply.github.com"
+          git add queue/queue.json
+          git diff --cached --quiet || (git commit -m "queue: mark published" && git push)
