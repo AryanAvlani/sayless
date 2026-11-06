@@ -14,12 +14,11 @@ Faceless Instagram page **@sayless_verb**: "How your stuff actually works" — 3
 - Finished reels go on the **`media`** branch (served by GitHub Pages). That branch is replaced each week, so videos never pile up in git history.
 - `queue/queue.json` lists each reel: file, caption, `publish_at` (UTC), status.
 - `.github/workflows/publish.yml` runs every 30 min and publishes whatever is due through the official Instagram API (`scripts/publish.py`).
-- `.github/workflows/token.yml` refreshes the Instagram access token weekly (tokens last 60 days).
+- The access token is a system-user token that never expires (app: Sayless Publisher, business portfolio: Sayless).
 
 ### Secrets (set once, by the owner)
-- `IG_TOKEN` — long-lived Instagram User access token (Instagram Login, permissions `instagram_business_basic`, `instagram_business_content_publish`).
-- `IG_USER_ID` — the Instagram account ID.
-- `GH_PAT` — only needed if Instagram's refresh returns a new token string.
+- `IG_TOKEN` — never-expiring system-user access token (Graph API host graph.facebook.com).
+- Instagram account ID 17841475226001074 (@sayless_verb) is set in the workflows.
 
 ## Weekly loop
 Research → 3–4 reels → QC → queue → auto-post → read insights → adjust topics/hooks.

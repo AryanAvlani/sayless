@@ -1,11 +1,11 @@
-"""Publish due reels from queue/queue.json to Instagram (Instagram API with Instagram Login).
+"""Publish due reels from queue/queue.json to Instagram (Instagram API, system-user token via Facebook Login for Business).
 Runs in GitHub Actions. Env: IG_TOKEN, IG_USER_ID, PAGES_BASE (e.g. https://aryanavlani.github.io/sayless). Media files live on the "media" branch (served by GitHub Pages); that branch is force-pushed fresh each week so videos never pile up in git history.
 Docs: https://developers.facebook.com/docs/instagram-platform/content-publishing
 """
 import json, os, sys, time, urllib.parse, urllib.request
 from datetime import datetime, timezone
 
-API = "https://graph.instagram.com/v25.0"
+API = "https://graph.facebook.com/v25.0"   # system-user token (never expires) works on the Facebook host
 TOKEN, IG = os.environ["IG_TOKEN"], os.environ["IG_USER_ID"]
 BASE = os.environ.get("PAGES_BASE", "https://aryanavlani.github.io/sayless").rstrip("/")
 QUEUE = "queue/queue.json"
