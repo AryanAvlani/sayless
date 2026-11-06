@@ -1,0 +1,14 @@
+name: dryrun
+on:
+  workflow_dispatch:
+    inputs:
+      file: {description: "file on the media branch", default: "gps.mp4"}
+jobs:
+  dryrun:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          IG_USER_ID: "17841475226001074"
+        run: python3 scripts/dryrun.py "${{ inputs.file }}"
