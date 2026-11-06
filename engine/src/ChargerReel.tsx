@@ -38,8 +38,8 @@ const KEYS: Key[] = [
   [L[3][1], v3(6.0, 6.0, -6.0), v3(0, -0.5, -0.4), 30],
   [XF0, v3(6.5, 4.8, 6.5), v3(0.1, -0.3, 0.1), 30],
   [CUT_CMP - 0.02, v3(5.8, 4.2, 6.0), v3(0.1, -0.3, 0.2), 30],
-  [CUT_CMP, W.clone().add(v3(0.5, 4.0, 13.0)), W.clone().add(v3(0, 0.4, 0)), 30],
-  [CUT_BACK - 0.02, W.clone().add(v3(-0.4, 3.4, 11.5)), W.clone().add(v3(0, 0.4, 0)), 30],
+  [CUT_CMP, W.clone().add(v3(0.6, 3.4, 19.0)), W.clone().add(v3(0, -0.2, 0)), 30],
+  [CUT_BACK - 0.02, W.clone().add(v3(-0.5, 3.0, 17.5)), W.clone().add(v3(0, -0.2, 0)), 30],
   [CUT_BACK, v3(7.5, 4.0, 9.0), v3(0, -0.2, 0), 30],
   [THERMAL, v3(6.5, 3.4, 8.2), v3(0, 0, 0.1), 30],
   [END, v3(7.5, 4.0, 9.5), v3(0, 0, 0), 30],
@@ -72,7 +72,7 @@ const useMats = () => useMemo(() => {
     ferrite: new THREE.MeshStandardMaterial({color: '#3b3d42', roughness: 0.7, metalness: 0.3}),
     copper: new THREE.MeshStandardMaterial({color: '#d98a4a', metalness: 1, roughness: 0.3, emissive: new THREE.Color('#ff8a3d'), emissiveIntensity: 0}),
     planar: new THREE.MeshStandardMaterial({color: '#c27a3e', metalness: 0.9, roughness: 0.3}),
-    floor: new THREE.MeshStandardMaterial({color: '#0b0d12', roughness: 0.85, metalness: 0.1}),
+    floor: new THREE.MeshStandardMaterial({color: '#050609', roughness: 0.95, metalness: 0.0}),
     glowC: glowTex('95,208,255'), glowW: glowTex('255,181,71'), glowR: glowTex('255,90,42'),
   };
 }, []);
@@ -170,8 +170,8 @@ const Compare: React.FC<{t: number; mats: any}> = ({t, mats}) => {
   const spin = t * 0.3;
   return (
     <group position={W.toArray()}>
-      <group position={[-1.5, 1.15, 0]} rotation={[0.25, spin, 0]} scale={[grow, grow, grow]}><Transformer s={2.3} th={2.3} mats={mats} /></group>
-      <group position={[1.55, 0.45, 0]} rotation={[0.35, -spin, 0]} scale={[gan, gan, gan]}><Transformer s={1.7} th={0.8} mats={mats} planar /></group>
+      <group position={[0, 3.5, 0]} rotation={[0.25, spin, 0]} scale={[grow, grow, grow]}><Transformer s={2.3} th={2.3} mats={mats} /></group>
+      <group position={[0, 0.9, 0]} rotation={[0.35, -spin, 0]} scale={[gan, gan, gan]}><Transformer s={1.7} th={0.8} mats={mats} planar /></group>
     </group>
   );
 };
@@ -229,7 +229,7 @@ export const ChargerReel: React.FC = () => {
   const t = frame / fps;
   const endOp = envAt(t, vo.total + 0.15, END + 5, 0.4);
   const cmp = (p: THREE.Vector3) => projectAt(KEYS, W.clone().add(v3(0, -S / 2, 0)).add(p), t, width, height);
-  const siP = cmp(v3(-1.5, 2.7, 0)), ganP = cmp(v3(1.55, 1.3, 0));
+  const siP = cmp(v3(0, 4.9, 0)), ganP = cmp(v3(0, 1.75, 0));
   const lossW = 0.9;
   const lossOp = envAt(t, wt(/^loses$/, 6), L[7][0] + 0.2);
   return (
@@ -245,9 +245,9 @@ export const ChargerReel: React.FC = () => {
       <Wave t={t} mode="dc4" color={C.accent} title="BATTERY · ~4 V DC" sub="one direction" op={envAt(t, BATT, L[3][0] - 0.1)} />
       <Wave t={t} mode="rect" color={C.warm} title="RECTIFIER" sub="one direction now" op={envAt(t, wt(/^turns$/, 3), L[4][0] - 0.1)} />
       <Wave t={t} mode="pulse" color={C.accent} title="SWITCH → TRANSFORMER" sub="fast pulses" op={envAt(t, SW0 - 0.1, CUT_CMP - 0.1)} />
-      <Label x={siP.x} y={siP.y - 40} op={envAt(t, CUT_CMP + 0.5, CUT_BACK)} color={C.text} size={32}>silicon · ~65 kHz</Label>
-      <Label x={ganP.x} y={ganP.y - 40} op={envAt(t, wt(/^smaller$/, 5) + 0.4, CUT_BACK)} color={C.accent} size={32}>GaN · ~400 kHz</Label>
-      <Label x={width / 2} y={420} op={envAt(t, wt(/^gallium$/, 5) - 0.2, CUT_BACK)} color={C.accent} size={34}>faster switching → smaller parts</Label>
+      <Label x={siP.x + 250} y={siP.y + 110} op={envAt(t, CUT_CMP + 0.5, CUT_BACK)} color={C.text} size={32}>silicon · ~65 kHz</Label>
+      <Label x={ganP.x + 250} y={ganP.y} op={envAt(t, wt(/^smaller$/, 5) + 0.4, CUT_BACK)} color={C.accent} size={32}>GaN · ~400 kHz</Label>
+      <Label x={width / 2} y={1720} op={envAt(t, wt(/^gallium$/, 5) - 0.2, CUT_BACK)} color={C.accent} size={34}>faster switching → smaller parts</Label>
       {lossOp > 0 ? (
         <div style={{position: 'absolute', left: 110, top: 300, width: 860, opacity: lossOp, background: 'rgba(5,10,24,0.66)', border: `1px solid ${C.warm}55`, borderRadius: 18, padding: '20px 26px'}}>
           <div style={{fontFamily: 'JetBrains Mono', fontSize: 30, color: C.dim, marginBottom: 12}}>POWER IN → OUT</div>
