@@ -41,29 +41,29 @@
       "id": "face-id",
       "file": "face-id.mp4",
       "caption": "Your phone unlocks the moment it sees your face. So why can't a photo of you do the same? \ud83d\udc40\n\nAbove the screen, a tiny projector fires more than 30,000 invisible infrared dots. An infrared camera reads where every dot lands and builds a 3D depth map of your face. A photo is flat, so it fails. The match happens on the phone itself, and Apple puts the odds of a random stranger unlocking it at less than 1 in a million.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#faceid #iphone #howitworks #tech #engineering #science #explained",
-      "publish_at": "",
-      "status": "draft"
+      "publish_at": "2026-11-18T19:00:00-05:00",
+      "status": "queued"
     },
     {
       "id": "microwave",
       "file": "microwave.mp4",
       "caption": "No flame. No hot coil. So where does the heat come from? \ud83d\udd25\n\nA part called a magnetron makes microwaves, a kind of radio wave. They bounce off the metal walls into your food, and their electric field flips direction about 5 billion times a second. Water molecules try to keep up, twisting back and forth, and that motion turns into heat. That's why watery food like vegetables heats up so fast.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#microwave #kitchen #howitworks #science #physics #engineering #explained",
-      "publish_at": "",
-      "status": "draft"
+      "publish_at": "2026-11-20T19:00:00-05:00",
+      "status": "queued"
     },
     {
       "id": "noise-cancelling",
       "file": "noise-cancelling.mp4",
       "caption": "Your earbuds make a jet engine go quiet by adding MORE sound. \ud83c\udfa7\n\nA tiny microphone on the outside listens to the noise. A chip makes a copy of that sound wave, flipped upside down. Where the noise pushes on your eardrum, the copy pulls, and the two cancel out. A second microphone inside your ear catches whatever slips through. It works best on steady, low hums like engines and air conditioners.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#noisecancelling #earbuds #headphones #howitworks #tech #science #explained",
-      "publish_at": "",
-      "status": "draft"
+      "publish_at": "2026-11-22T19:00:00-05:00",
+      "status": "queued"
     },
     {
       "id": "find-my",
       "file": "find-my.mp4",
       "caption": "An AirTag has no GPS and no internet. So how does it show up on your map, miles away? \ud83d\udccd\n\nIt keeps sending out a short-range Bluetooth signal. Any iPhone that walks past can pick it up, even a stranger's. That phone adds its own location, locks it so only you can read it, and sends it on. Apple doesn't know who found it or whose it is, and the signal changes its ID about every 15 minutes so it can't be used to follow anyone.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#airtag #findmy #iphone #howitworks #tech #bluetooth #explained",
-      "publish_at": "",
-      "status": "draft"
+      "publish_at": "2026-11-24T19:00:00-05:00",
+      "status": "queued"
     }
   ]
 }
