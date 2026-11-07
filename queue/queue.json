@@ -36,6 +36,13 @@
       "caption": "There's a tiny weight inside your phone that never sits still. \ud83d\udcf1\n\nA 2 mm chip holds a sliver of silicon on microscopic springs. Tilt your phone, gravity pulls it, the gaps between its comb-like fingers change, and the chip reads that change hundreds of times a second. That's how your screen knows when to rotate, and how your phone counts your steps.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#howitworks #smartphone #tech #engineering #mems #science #explained",
       "publish_at": "2026-11-16T19:00:00-05:00",
       "status": "queued"
+    },
+    {
+      "id": "face-id",
+      "file": "face-id.mp4",
+      "caption": "Your phone unlocks the moment it sees your face. So why can't a photo of you do the same? \ud83d\udc40\n\nAbove the screen, a tiny projector fires more than 30,000 invisible infrared dots. An infrared camera reads where every dot lands and builds a 3D depth map of your face. A photo is flat, so it fails. The match happens on the phone itself, and Apple puts the odds of a random stranger unlocking it at less than 1 in a million.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#faceid #iphone #howitworks #tech #engineering #science #explained",
+      "publish_at": "",
+      "status": "draft"
     }
   ]
 }
