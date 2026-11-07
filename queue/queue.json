@@ -57,6 +57,13 @@
       "caption": "Your earbuds make a jet engine go quiet by adding MORE sound. \ud83c\udfa7\n\nA tiny microphone on the outside listens to the noise. A chip makes a copy of that sound wave, flipped upside down. Where the noise pushes on your eardrum, the copy pulls, and the two cancel out. A second microphone inside your ear catches whatever slips through. It works best on steady, low hums like engines and air conditioners.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#noisecancelling #earbuds #headphones #howitworks #tech #science #explained",
       "publish_at": "",
       "status": "draft"
+    },
+    {
+      "id": "find-my",
+      "file": "find-my.mp4",
+      "caption": "An AirTag has no GPS and no internet. So how does it show up on your map, miles away? \ud83d\udccd\n\nIt keeps sending out a short-range Bluetooth signal. Any iPhone that walks past can pick it up, even a stranger's. That phone adds its own location, locks it so only you can read it, and sends it on. Apple doesn't know who found it or whose it is, and the signal changes its ID about every 15 minutes so it can't be used to follow anyone.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#airtag #findmy #iphone #howitworks #tech #bluetooth #explained",
+      "publish_at": "",
+      "status": "draft"
     }
   ]
 }
