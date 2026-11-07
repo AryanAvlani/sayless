@@ -51,6 +51,8 @@ const massShift = (t: number) => {
 
 // ---------------- phone world ----------------
 const Phone: React.FC<{t: number; mats: any; xray: number; rot: number}> = ({t, mats, xray, rot}) => {
+  // shrink while turning sideways so the landscape phone (1.6 wide) fits the 9:16 frame
+  const sc = 1 - 0.42 * Math.abs(rot) / (Math.PI / 2);
   const body = useMemo(() => new RoundedBoxGeometry(0.76, 1.6, 0.085, 6, 0.1), []);
   const bodyMat = mats.body as THREE.MeshPhysicalMaterial;
   bodyMat.opacity = 1 - 0.85 * xray; bodyMat.transparent = xray > 0.001; bodyMat.depthWrite = xray < 0.5;
@@ -60,7 +62,7 @@ const Phone: React.FC<{t: number; mats: any; xray: number; rot: number}> = ({t, 
   scr.map = land > 0.5 ? mats.uiLand : mats.uiPort;
   const wob = t < L[1][0] ? 0.03 * Math.sin(t * 2.1) : 0;
   return (
-    <group rotation={[0.08 + wob, -0.35 + Math.sin(t * 0.4) * 0.12 * (t < CUT_IN ? 1 : 0), rot]}>
+    <group scale={sc} rotation={[0.08 + wob, -0.35 + Math.sin(t * 0.4) * 0.12 * (t < CUT_IN ? 1 : 0), rot]}>
       <mesh geometry={body} material={bodyMat} />
       <mesh position={[0, 0, 0.0435]}><planeGeometry args={[0.7, 1.53]} /><primitive object={scr} attach="material" /></mesh>
       {/* camera bump on the back */}
@@ -251,7 +253,7 @@ export const MemsReel: React.FC = () => {
   const gravity = envAt(t, L[4][0] + 0.8, L[5][0] + 0.3);
   const cLbl = envAt(t, L[5][0] + 1.4, L[6][0]);
   const chart = envAt(t, L[6][0] + 0.6, CUT_OUT - 0.05, 0.4, 0.2);
-  const steps = envAt(t, L[7][0] + 2.6, END + 5);
+  const steps = envAt(t, L[7][0] + 2.6, vo.total + 0.1, 0.3, 0.25);   // gone before the end card
   const endOp = envAt(t, vo.total + 0.15, END + 5, 0.4);
   const stepN = Math.floor(6200 + clamp01((t - L[7][0] - 2.6) / 2) * 14);
   const dx = massShift(t);
