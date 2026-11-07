@@ -20,6 +20,13 @@
       "caption": "Your phone screen can't feel your finger. It feels the electricity in your body. \u26a1\n\nUnder the glass is a grid of invisible wires. Your finger pulls a little charge from the crossings underneath, and a chip checking up to 240 times a second finds the spot. That's also why your screen ignores you when you're wearing gloves.\n\nFollow @sayless_verb for how your stuff actually works.\nVoiceover is AI-generated.\n\n#touchscreen #howitworks #smartphone #tech #engineering #science #explained",
       "publish_at": "",
       "status": "draft"
+    },
+    {
+      "id": "tap-to-pay",
+      "file": "tap-to-pay.mp4",
+      "caption": "Your credit card has no battery. So how does it pay with just a tap? \ud83d\udcb3\n\nA thin coil inside the card picks up the reader's magnetic field, which powers its chip for a split second, just long enough to create a code that only works once. Your phone goes one step further: it never sends your real card number.\n\nFollow @sayless_verb for how your stuff actually works.\nVoiceover is AI-generated.\n\n#contactless #tapandpay #nfc #creditcard #howitworks #tech #explained",
+      "publish_at": "",
+      "status": "draft"
     }
   ]
 }
