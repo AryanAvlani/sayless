@@ -11,7 +11,7 @@ def call(method, path, **p):
     try:
         with urllib.request.urlopen(req, timeout=60) as r: return json.load(r)
     except urllib.error.HTTPError as e: raise SystemExit(f"API error {e.code}: {e.read().decode()[:400]}")
-c = call("POST", f"{IG}/media", media_type="REELS", video_url=url, caption="dry run - not published")
+c = call("POST", f"{IG}/media", media_type="REELS", video_url=url, caption="dry run - not published", is_ai_generated="true")
 print("container created:", c["id"], "for", url)
 for i in range(20):
     time.sleep(30)

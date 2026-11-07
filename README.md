@@ -24,7 +24,7 @@ Faceless Instagram page **@sayless_verb**: "How your stuff actually works" — 3
 Research → 3–4 reels → QC → queue → auto-post → read insights → adjust topics/hooks.
 
 ## Adding reels (for the reel-making session)
-1. Finish the reel (MP4, 1080x1920) and write its caption (end with "Voiceover is AI-generated." when the voice is AI).
+1. Finish the reel (MP4, 1080x1920) and write its caption. No AI mention in captions: the publisher sets Meta's "AI info" label (`is_ai_generated`) on every reel, because the voiceover is AI. Set `"ai_label": false` on a queue item only if it has no AI voice/visuals.
 2. From a clone of this repo: `python3 scripts/add_reel.py path/to/reel.mp4 <slug> "<caption>"` — adds it as a **draft** (hosted, never posted).
 3. To schedule: set `publish_at` (e.g. `2026-11-08T19:00:00+05:30`) and `status: "queued"` in `queue/queue.json`, commit, push. The publisher posts it within 30 min of that time — only after the owner approves the schedule.
 4. Optional safety check before scheduling: run the **dryrun** workflow with the file name (Instagram processes the video, nothing is posted).

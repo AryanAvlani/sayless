@@ -24,7 +24,10 @@ def call(method, path, **params):
 
 def publish(item):
     url = f"{BASE}/{item['file']}"
-    c = call("POST", f"{IG}/media", media_type="REELS", video_url=url, caption=item["caption"], share_to_feed="true")
+    # is_ai_generated applies Meta's "AI info" label (required for reels with a realistic AI voiceover; Meta changelog 22 Jun 2026).
+    # It can only be set when the container is created, never afterwards.
+    ai = "true" if item.get("ai_label", True) else "false"
+    c = call("POST", f"{IG}/media", media_type="REELS", video_url=url, caption=item["caption"], share_to_feed="true", is_ai_generated=ai)
     cid = c["id"]; print("container", cid)
     for _ in range(20):                       # up to ~10 min
         time.sleep(30)
@@ -35,6 +38,8 @@ def publish(item):
     else:
         raise SystemExit(f"container {cid} not ready in time")
     m = call("POST", f"{IG}/media_publish", creation_id=cid)
+    try: print("ai label:", call("GET", m["id"], fields="is_ai_generated,permalink"))
+    except SystemExit as e: print("ai label check failed (post is live):", e)
     return m["id"]
 
 def main():
