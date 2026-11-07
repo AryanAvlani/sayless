@@ -1,0 +1,4 @@
+# Microwave reel — sources
+- Magnetron makes microwaves; microwaves are electromagnetic radiation similar to radio waves; they reflect off the metal interior and make water molecules in food vibrate; friction between molecules produces heat; high-water foods like fresh vegetables cook faster; metal reflects microwaves: FDA "Microwave Ovens" https://www.fda.gov/radiation-emitting-products/resources-you-radiation-emitting-products/microwave-ovens
+- Field changes direction about five billion times a second; dipoles (water) try to align with the alternating field; 2.45 GHz: Swiss Federal Office of Public Health (BAG) fact sheet "Microwave ovens" (1 Apr 2025) https://www.bag.admin.ch/dam/bag/en/dokumente/str/nis/faktenblaetter-emf/faktenblatt-mikrowellenofen.pdf.download.pdf/faktenblatt%20mikrowellenofen%20e.pdf
+- 2450 MHz ISM allocation for domestic ovens: NTIA Report 95-323 https://its.ntia.gov/publications/download/95-323.pdf
