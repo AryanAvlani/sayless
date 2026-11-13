@@ -23,7 +23,9 @@
       "file": "gps.mp4",
       "caption": "Your phone never talks to GPS satellites. It only listens. \ud83d\udef0\ufe0f\n\nAbout 30 satellites, more than 12,000 miles up, each with an atomic clock. Your phone times their signals and turns each delay into a distance. Four distances, one spot: you, accurate to about 16 feet.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#gps #howitworks #tech #science #engineering #satellite #explained",
       "publish_at": "2026-11-12T19:00:00-05:00",
-      "status": "queued"
+      "status": "published",
+      "media_id": "18392550991233862",
+      "published_at": "2026-11-13T00:03:14+00:00"
     },
     {
       "id": "charger",
