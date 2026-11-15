@@ -32,7 +32,9 @@
       "file": "charger.mp4",
       "caption": "Your phone charger switches the power on and off over 100,000 times a second. \ud83d\udd0c\n\nIt turns your outlet's 120-volt back-and-forth current into one direction, chops it into rapid pulses, and a tiny transformer steps it down for your battery. Faster switching means a smaller transformer, which is why gallium nitride (GaN) chargers are so small. The warmth you feel? Up to about a tenth of the energy, lost as heat.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#charger #gan #electronics #howitworks #tech #engineering #explained",
       "publish_at": "2026-11-14T19:00:00-05:00",
-      "status": "queued"
+      "status": "published",
+      "media_id": "18136334674825102",
+      "published_at": "2026-11-15T00:03:08+00:00"
     },
     {
       "id": "screen-rotation",
