@@ -41,7 +41,9 @@
       "file": "screen-rotation.mp4",
       "caption": "There's a tiny weight inside your phone that never sits still. \ud83d\udcf1\n\nA 2 mm chip holds a sliver of silicon on microscopic springs. Tilt your phone, gravity pulls it, the gaps between its comb-like fingers change, and the chip reads that change hundreds of times a second. That's how your screen knows when to rotate, and how your phone counts your steps.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#howitworks #smartphone #tech #engineering #mems #science #explained",
       "publish_at": "2026-11-16T19:00:00-05:00",
-      "status": "queued"
+      "status": "published",
+      "media_id": "17937677634142413",
+      "published_at": "2026-11-17T00:03:07+00:00"
     },
     {
       "id": "face-id",
