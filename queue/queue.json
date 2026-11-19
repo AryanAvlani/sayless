@@ -50,7 +50,9 @@
       "file": "face-id.mp4",
       "caption": "Your phone unlocks the moment it sees your face. So why can't a photo of you do the same? \ud83d\udc40\n\nAbove the screen, a tiny projector fires more than 30,000 invisible infrared dots. An infrared camera reads where every dot lands and builds a 3D depth map of your face. A photo is flat, so it fails. The match happens on the phone itself, and Apple puts the odds of a random stranger unlocking it at less than 1 in a million.\n\nFollow @sayless_verb for how your stuff actually works.\n\n#faceid #iphone #howitworks #tech #engineering #science #explained",
       "publish_at": "2026-11-18T19:00:00-05:00",
-      "status": "queued"
+      "status": "published",
+      "media_id": "17912344146571020",
+      "published_at": "2026-11-19T00:03:10+00:00"
     },
     {
       "id": "microwave",
